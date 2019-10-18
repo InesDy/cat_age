@@ -51,12 +51,12 @@
                                     <action selector="calculerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xof-eF-S7T"/>
                                 </connections>
                             </button>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rana-sawalha-X7UR0BDz-UY-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="Uki-c3-3Gd">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartCat" translatesAutoresizingMaskIntoConstraints="NO" id="Uki-c3-3Gd">
                                 <rect key="frame" x="0.0" y="332" width="375" height="335.00000000000182"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ohO-GF-cRq">
                                 <rect key="frame" x="13" y="266" width="349" height="58"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="iFe-cG-BxT"/>
@@ -93,17 +93,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="SwipeRight" destination="dxK-Oc-rcG" id="SFa-g7-EWy"/>
                         <outlet property="ageTextField" destination="OTy-F8-fd3" id="2uk-LN-sWL"/>
+                        <outlet property="imageView" destination="Uki-c3-3Gd" id="PFa-at-yd0"/>
                         <outlet property="resultLabel" destination="ohO-GF-cRq" id="nUL-Kg-7eM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="dxK-Oc-rcG" colorLabel="IBBuiltInLabel-Red">
-                    <connections>
-                        <outlet property="delegate" destination="8bC-Xf-vdC" id="uHy-le-HK1"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="115.59220389805098"/>
         </scene>
@@ -120,10 +115,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNQ-5M-IaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="114"/>
+            <point key="canvasLocation" x="988" y="116"/>
         </scene>
     </scenes>
     <resources>
-        <image name="rana-sawalha-X7UR0BDz-UY-unsplash" width="4535" height="7012"/>
+        <image name="StartCat" width="4535" height="7012"/>
     </resources>
 </document>

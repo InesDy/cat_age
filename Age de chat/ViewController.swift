@@ -12,19 +12,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var resultLabel: UITextView!
-    @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
-    
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // keyboard away when tapping outside the box
+        
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
-
+        
+        let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft(sender:)))
+        swipeLeftGesture.direction = .left
+        view.addGestureRecognizer(swipeLeftGesture)
+        
     }
     
+    @objc func swipeLeft(sender: UISwipeGestureRecognizer) {
+        show(SecondViewController(), sender: self)
+    }
     
-   
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     @IBAction func calculerAction(_ sender: Any) {
@@ -39,25 +43,35 @@ class ViewController: UIViewController {
             let text = ageTextField.text!
             
             
-            if let nombreEntier = Double(text), nombreEntier < 100 {
+            if let nombreEntier = Double(text), nombreEntier >= 0, nombreEntier <= 100 {
                 let ageOfCat = nombreEntier / 7
                 let formatedAge = String(format: "%.2f", ageOfCat)
-            
-            
-                
-                
-   resultLabel.text = "Votre âge de chat est de : \(formatedAge) ans"
-                
-switch nombreEntier {
-    case 10 : resultLabel.text = "you will be dead as a cat" + " but you age would be                              \(formatedAge)"
-    case 25 : resultLabel.text = "you will be dead for a long time"
-    case 29 : resultLabel.text = "you almost dead as a human" +  " but you age would be : \(formatedAge)"
-    default:
-            break
-                    
+        
+                switch nombreEntier {
+                case 0..<20 :
+                    resultLabel.text = "you will be dead as a cat" + " but you age would be \(formatedAge)"
+                    imageView.image = UIImage(named: "babyCat")
+                case 20..<40 :
+                    resultLabel.text = "you will be dead for a long time" + " but you age would be : \(formatedAge)"
+                    imageView.image = UIImage(named: "normal")
+                case 40..<60 :
+                    resultLabel.text = "you old af" +  " but you age would be : \(formatedAge)"
+                    imageView.image = UIImage(named: "OldCat")
+                    view.backgroundColor = .darkGray
+                case 60..<80 :
+                    resultLabel.text = "you almost dead as a human" +  " but you age would be : \(formatedAge)"
+                    imageView.image = UIImage(named: "NakedCat")
+                case 80..<100 :
+                    resultLabel.text = "you reincarnated poor thing" +  " but you age would be : \(formatedAge)"
+                    imageView.image = UIImage(named: "Dog")
+                default:
+                    resultLabel.text = "Your cat age is : \(formatedAge)"
+                    imageView.image = UIImage(named: "StartCat")
                 }
             } else {
                 resultLabel.text = "Invalid number"
+                imageView.image = UIImage(named: "StartCat")
+                view.backgroundColor = .black
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     self.resultLabel.text = "You dummy"
